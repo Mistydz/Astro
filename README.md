@@ -7,9 +7,12 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 
 
 ### *Demo*
-![demo](/images/demo.png)
 
 This application is deployed on Heroku. Please check it out [Here](https://github.com/Mistydz/)
+
+
+![demo](/Demo.PNG)
+
 
 
 ### *Technologies & Tools*
