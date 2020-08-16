@@ -5,7 +5,6 @@ This web app will get the user input ( User - Wanted level ) then call the Steam
 
 If you want to clone the project make sure to change the Steam_API_Key on the index.js and i recommend using dotenv before deploying your project so you  dont share your api key publicly.
 
-I m making the API call to steam from the backend so i dont get the CORS error .
 
 ### *Demo*
 
