@@ -7,6 +7,7 @@ let level;
 
 
 
+
 async function getData() {
     var user = document.getElementById('user').value;
     var level = document.getElementById('level').value;
@@ -14,15 +15,14 @@ async function getData() {
     const db_data = await db_response.json();
     window.stop();
 
-
-    var time = db_data.creation;
+    const { timecreated: time = 907794930 } = db_data;
     const date = new Date(time * 1000);
     const year = date.getFullYear();
     const month = date.toLocaleString('default', { month: 'long' });
     const dt = date.getDate();
     const fullDate = dt + ' ' + month + ' ' + year;
-
-    if (db_data.state == 0) {
+    const { personastate: state = 0 } = db_data;
+    if (state == 0) {
         const userstate = 'Offline';
         document.getElementById('state2').textContent = userstate;
         document.getElementById('state2').style.color = "red";
@@ -33,32 +33,41 @@ async function getData() {
 
     }
 
-    document.getElementById('img').src = db_data.avatar;
+
+
+
+    const { avatarfull: avatarfull = './default_avatar.jpg' } = db_data;
+    document.getElementById('img').src = avatarfull;
     document.getElementById('img').style.opacity = "1";
-    document.getElementById('img2').src = db_data.flag;
+    const { flag: flag = 'https://restcountries.eu/data/mac.svg' } = db_data;
+    document.getElementById('img2').src = flag;
     document.getElementById('img2').style.opacity = "1";
+    const { personaname: personaname = 'no Name' } = db_data;
     document.getElementById('name1').textContent = 'Name : ';
-    document.getElementById('name2').textContent = db_data.name;
+    document.getElementById('name2').textContent = personaname;
     document.getElementById('country1').textContent = 'Country : ';
-    document.getElementById('country2').textContent = db_data.country;
+    const { name: country = 'unkown' } = db_data;
+    document.getElementById('country2').textContent = country;
     document.getElementById('date1').textContent = 'Creation Date : ';
     document.getElementById('date2').textContent = fullDate;
     document.getElementById('date1').textContent = 'Creation Date : ';
     document.getElementById('state1').textContent = 'User State :';
     document.getElementById('url1').textContent = 'Profile Url :';
-    document.getElementById('url2').textContent = db_data.url;
-    document.getElementById('url2').href = db_data.url;
+    const { profileurl: url = 'Wrong user check it again.' } = db_data;
+    document.getElementById('url2').textContent = url;
+    document.getElementById('url2').href = url;
     document.getElementById('title').style.paddingTop = "0";
 
 
 
 
-
-    const diffrencelvl = level - db_data.level;
+    const { player_level: pl = 0 } = db_data;
+    const { player_xp: xp = 0 } = db_data;
+    const diffrencelvl = level - pl;
     if (level == '') {
-        level = db_data.level + 1
+        level = pl + 1
         const calc_xp = (Math.ceil(((level * ((level * 5) + 50)) / 100))) * 100;
-        const diffrence = calc_xp - db_data.xp;
+        const diffrence = calc_xp - xp;
         const badges = Math.ceil((diffrence / 100)); // coupons or promo card recived after crafting = sets used
         const tf2_keys = badges / 20; // const emote = badges * 2; when u craft a badge u get 1 emote 1 background 1 coupon/promoCard
 
@@ -72,7 +81,7 @@ async function getData() {
         document.getElementById('tf22').textContent = 0;
     } else {
         const calc_xp = (Math.ceil(((level * ((level * 5) + 50)) / 100))) * 100;
-        const diffrence = calc_xp - db_data.xp;
+        const diffrence = calc_xp - xp;
         const badges = Math.ceil((diffrence / 100)); // coupons or promo card recived after crafting = sets used
         const tf2_keys = badges / 20; // const emote = badges * 2; when u craft a badge u get 1 emote 1 background 1 coupon/promoCard
 
@@ -83,9 +92,9 @@ async function getData() {
 
 
     }
-    document.getElementById('level2').textContent = db_data.level;
+    document.getElementById('level2').textContent = pl;
     document.getElementById('dreamlevel2').textContent = level;
-    document.getElementById('xpnow2').textContent = db_data.xp;
+    document.getElementById('xpnow2').textContent = xp;
     document.getElementById('level1').textContent = 'Level : ';
     document.getElementById('dreamlevel1').textContent = 'Level Wanted : ';
     document.getElementById('xpnow1').textContent = 'Current XP : ';
