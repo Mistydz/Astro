@@ -8,7 +8,6 @@ app.listen(port, () => {
     console.log(`Starting server at ${port}`);
 });
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: false }));
 
 var urlencodedParser = express.urlencoded({ extended: false })
 
