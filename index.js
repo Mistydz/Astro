@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 
 
@@ -9,12 +8,9 @@ app.listen(port, () => {
     console.log(`Starting server at ${port}`);
 });
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 
-
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-
-
+var urlencodedParser = express.urlencoded({ extended: false })
 
 
 
@@ -22,7 +18,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.get('/id', urlencodedParser, async(req, res) => {
     const id = req.query.user; // user input
     // a quick error handling when there is no user input or the api can't find the Steamid will just go for a unknown output
-    if (id == '') {
+    if (!id) {
         const data = '';
         res.json(data);
     } else {
