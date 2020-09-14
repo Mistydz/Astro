@@ -1,16 +1,20 @@
-# SteamLevels
-### *Description*
+# Steam Level Calculator
+:video_game: Steam is a cloud-based gaming library. One of its most popular features is the ability for users to customize there profiles . Every Steam user has a level, with higher levels granting bonuses like extra slots on your friends list and higher drop rates for booster card packs. This web application can help the user to know how much is the cost/badges to get to his wanted level.
 
-This web app will get the user input ( User - Wanted level ) then call the Steam API to get more information about the user ( Current Level - XP - and some other basic info ...) then calculate the sets and the cost to get to the wanted level.
+### *Features*
+- Takes user input (steam username - wanted level) and calculate the cost of rank up
+- Calls the steam api from the backend to avoid the CROS error
+- Theme selection (dark/light mode)  'will be added next week'
 
-If you want to clone the project make sure to change the Steam_API_Key on the index.js and i recommend using dotenv before deploying your project so you dont share your api key publicly.
+Steam max level cap is 5099 now so anything above that would not get calculated .
 
-Steam max level cap is 5099 now so if you enterd more then that in the wanted level it will not calculate and will just give back 0.
 
 ### *Demo*
 
-This application is deployed on Heroku. Please check it out [Here](https://steamlevelcalculator.herokuapp.com/)
+* Source Control: GitHub
+* Hosting: This application is deployed on Heroku. Please check it out [Here](https://steamlevelcalculator.herokuapp.com/)
 
+If you want to clone the project make sure to change the Steam_API_Key on the index.js and i recommend using dotenv before deploying your project so you dont share your api key publicly.
 
 ![demo](/Demo.PNG)
 
