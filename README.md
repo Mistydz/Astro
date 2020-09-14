@@ -44,5 +44,5 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 
 - Features
   - Steam user data from the steam api (Name,Level,XP)
-  - Calcuat the difference on xp betwen current and wanted xp
+  - Calcuate the difference on xp betwen current and wanted xp
   - Deployment on https://steamlevelcalculator.herokuapp.com/
