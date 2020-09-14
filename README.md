@@ -29,3 +29,20 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 >Steam API [Documentation](https://partner.steamgames.com/doc/webapi/IPlayerService)
 
 >REST Countries API [Documentation](https://restcountries.eu/)
+
+### *Releases*
+
+#### Version 1.1
+
+- Features
+  - Mobile optimisted layout
+  - Added user country and flag 
+- Fixes
+  - Max allowed wanted level as 5099
+
+#### Version 1.0
+
+- Features
+  - Steam user data from the steam api (Name,Level,XP)
+  - Calcuat the difference on xp betwen current and wanted xp
+  - Deployment on https://steamlevelcalculator.herokuapp.com/
