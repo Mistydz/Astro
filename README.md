@@ -39,6 +39,7 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
   - Added user country and flag 
 - Fixes
   - Max allowed wanted level as 5099
+  - if level wanted is inferior to current level stop calculating 
 
 #### Version 1.0
 
