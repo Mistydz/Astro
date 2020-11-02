@@ -6,7 +6,7 @@
 - Calls the steam api from the backend to avoid the CROS error
 - Theme selection (dark/light mode)  'will be added next week'
 
-Steam max level cap is 5099 now so anything above that would not get calculated .
+Steam max level cap is 5099 now so anything above that would not get calculated ...
 
 
 ### *Demo*
