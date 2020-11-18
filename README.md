@@ -31,7 +31,7 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 >REST Countries API [Documentation](https://restcountries.eu/)
 
 ### *Releases*
-
+Problem to fix : website is not runing on mozilla firefox (window refresh stop doesnt work) 
 #### Version 1.1
 
 - Features
