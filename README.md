@@ -4,7 +4,7 @@
 ### *Features*
 - Takes user input (steam username - wanted level) and calculate the cost of rank up
 - Calls the steam api from the backend to avoid the CROS error
-- Theme selection (dark/light mode)  'will be added next week'
+- Theme selection (dark/light mode)  'will be added soon'
 
 Steam max level cap is 5099 now so anything above that would not get calculated .
 
