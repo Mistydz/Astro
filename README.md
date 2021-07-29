@@ -16,7 +16,7 @@ Steam max level cap is 5099 now so anything above that would not get calculated 
 
 If you want to clone the project make sure to change the Steam_API_Key on the index.js and i recommend using dotenv before deploying your project so you dont share your api key publicly.
 
-![demo](https://raw.githubusercontent.com/Mistydz/SteamAstro/master/public/12.png)
+![demo](https://github.com/Mistydz/SteamAstro/blob/0ca089d9eea4b9a8e7484e350f9fa3a5840df8c7/public/12.PNG)
 
 
 
