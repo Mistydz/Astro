@@ -4,7 +4,8 @@
   "description": "Steam level calculator that tell you how many badge you will need to the next level.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [
     "steam",
