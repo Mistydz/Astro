@@ -1,54 +1,124 @@
-const express = require('express');
-const fetch = require('node-fetch'); 
-
-
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const fetch = require("node-fetch");
+require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Starting server at ${port}`);
 });
-app.use(express.static('public'));
+app.use(express.static('client/build'));
+app.use(cors());
 
-var urlencodedParser = express.urlencoded({ extended: false })
+const Steam_API_Key = process.env.Steam_API_Key; // create .env file with Steam_API_Key=XXXXXXXXX in it
+
+if (!Steam_API_Key) {
+    throw new Error('You need a steam api key to get a response')
+}
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.get("/id", urlencodedParser, async(req, res) => {
 
 
+    try {
+        const id = req.query.user; // user input
+        if (!id) throw new Error("The username field is empty");
+
+        if ((id * 1) == id) {
+            const steamid = id;
+            const BadgesURL = `http://api.steampowered.com/IPlayerService/GetBadges/v1/?key=${Steam_API_Key}&steamid=${steamid}`;
+            const { response: Badges } = await (await fetch(BadgesURL)).json();
+            if (!Badges) throw new Error("This user info are privet or inexistant , please try again later");
+
+            const { player_xp, player_level, player_xp_needed_to_level_up } = Badges;
+
+            const PlayerSummariesURL = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${Steam_API_Key}&steamids=${steamid}`;
+            const { response: PlayerSummaries } = await (
+                await fetch(PlayerSummariesURL)
+            ).json();
+
+            const {
+                personastate,
+                personaname,
+                profileurl,
+                avatarfull,
+                timecreated,
+                loccountrycode,
+            } = PlayerSummaries.players[0];
 
 
-app.get('/id', urlencodedParser, async(req, res) => {
-    const id = req.query.user; // user input
-    // a quick error handling when there is no user input or the api can't find the Steamid will just go for a unknown output
-    if (!id) {
-        const data = '';
-        res.json(data);
-    } else {
-        const Steam_API_Key = 'XXXXXXXXXXXXXXXXXXXXX'; //replace by your API key
-        const apiUrl = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${Steam_API_Key}&vanityurl=${id}`
-        const idinfo = await fetch(apiUrl);
-        const idinfo2 = await idinfo.json();
-        const { success, steamid } = idinfo2.response;
-        if (success != 1) {
-            const data = '';
+            const CountryURL = `https://restcountries.eu/rest/v2/alpha/${loccountrycode}`;
+            const { flag, name } = await (await fetch(CountryURL)).json();
+
+            const data = {
+                steamid,
+                player_xp,
+                player_level,
+                player_xp_needed_to_level_up,
+                personastate,
+                personaname,
+                profileurl,
+                avatarfull,
+                timecreated,
+                loccountrycode,
+                flag,
+                name,
+            };
+
+            console.log(data)
             res.json(data);
         } else {
-            const curl = `http://api.steampowered.com/IPlayerService/GetBadges/v1/?key=${Steam_API_Key}&steamid=${steamid}`;
-            const cinfo = await fetch(curl);
-            const cinfo2 = await cinfo.json();
-            const { player_xp, player_level, player_xp_needed_to_level_up } = cinfo2.response;
-            const burl = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${Steam_API_Key}&steamids=${steamid}`;
-            const binfo = await fetch(burl);
-            const binfo2 = await binfo.json();
-            const { personastate, personaname, profileurl, avatarfull, timecreated, loccountrycode } = binfo2.response.players[0];
-            const aurl = `https://restcountries.eu/rest/v2/alpha/${loccountrycode}`
-            const ainfo = await fetch(aurl);
-            const ainfo2 = await ainfo.json();
-            const { flag, name } = ainfo2;
+            const SteamIdUrl = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${Steam_API_Key}&vanityurl=${id}`;
+            const { response: { success, steamid }, } = await (await fetch(SteamIdUrl)).json();
+            if (success != 1) throw new Error("This user can't be found , please verify your input again");
 
-            const data = { player_xp, player_level, player_xp_needed_to_level_up, personastate, personaname, profileurl, avatarfull, timecreated, flag, name, };
+
+            const BadgesURL = `http://api.steampowered.com/IPlayerService/GetBadges/v1/?key=${Steam_API_Key}&steamid=${steamid}`;
+            const { response: Badges } = await (await fetch(BadgesURL)).json();
+            if (!Badges) throw new Error("This user info are privet or inexistant , please try again later");
+
+            const { player_xp, player_level, player_xp_needed_to_level_up } = Badges;
+
+            const PlayerSummariesURL = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${Steam_API_Key}&steamids=${steamid}`;
+            const { response: PlayerSummaries } = await (
+                await fetch(PlayerSummariesURL)
+            ).json();
+
+            const {
+                personastate,
+                personaname,
+                profileurl,
+                avatarfull,
+                timecreated,
+                loccountrycode,
+            } = PlayerSummaries.players[0];
+
+
+            const CountryURL = `https://restcountries.eu/rest/v2/alpha/${loccountrycode}`;
+            const { flag, name } = await (await fetch(CountryURL)).json();
+
+            const data = {
+                steamid,
+                player_xp,
+                player_level,
+                player_xp_needed_to_level_up,
+                personastate,
+                personaname,
+                profileurl,
+                avatarfull,
+                timecreated,
+                loccountrycode,
+                flag,
+                name,
+            };
+
+            console.log(data)
             res.json(data);
         }
+
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
-
-
-
 });
