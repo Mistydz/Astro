@@ -12,7 +12,7 @@ Steam max level cap is 5099 now so anything above that would not get calculated 
 ### *Demo*
 
 * Source Control: GitHub
-* Hosting: This application is deployed on Heroku. Please check it out [Here](https://steamlevelcalculator.herokuapp.com/)
+* Hosting: This application is deployed on Heroku. Please check it out [Here](https://astro-s.herokuapp.com/)
 
 If you want to clone the project make sure to change the Steam_API_Key on the index.js and i recommend using dotenv before deploying your project so you dont share your api key publicly.
 
@@ -22,7 +22,7 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 
 ### *Technologies & Tools*
 ##### *Front End*
-> Html/CSS/Javascript
+> ReactJs
 ##### *Back End*
 >Node/Express
 ##### *API's Used*
@@ -46,4 +46,4 @@ Problem to fix : website is not runing on mozilla firefox (window refresh stop d
 - Features
   - Steam user data from the steam api (Name,Level,XP)
   - Calcuate the difference on xp betwen current and wanted xp
-  - Deployment on https://steamlevelcalculator.herokuapp.com/
+  - Deployment on https://astro-s.herokuapp.com/
