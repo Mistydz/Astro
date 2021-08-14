@@ -11,7 +11,7 @@ app.listen(port, () => {
 app.use(express.static('client/build'));
 app.use(cors());
 
-const Steam_API_Key = '1CFB1ED58877A9D7363BF3188C36DF5D'; // create .env file with Steam_API_Key=XXXXXXXXX in it
+const Steam_API_Key = process.env.API_KEY; // create .env file with Steam_API_Key=XXXXXXXXX in it
 
 if (!Steam_API_Key) {
     throw new Error('You need a steam api key to get a response')
