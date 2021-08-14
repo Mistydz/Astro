@@ -1,21 +1,23 @@
 {
-  "name": "steamcalculator",
-  "version": "1.0.1",
-  "description": "Steam level calculator that tell you how many badge you will need to the next level.",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
-  },
-  "keywords": [
-    "steam",
-    "steamcalculator",
-    "steamlevel"
-  ],
-  "author": "Mohammed Marwan",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
-  }
+    "name": "steam-levels",
+    "version": "0.1.0",
+    "description": "Steam profile lookup web application",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    },
+    "keywords": [
+        "steam",
+        "levels"
+    ],
+    "author": "Mohammed Marwan",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "node-fetch": "^2.6.1"
+    }
 }
