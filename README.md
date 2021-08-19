@@ -34,7 +34,6 @@ Problem to fix : website is not runing on mozilla firefox (window refresh stop d
 #### Version 1.1
 
 - Features
-  - Mobile optimisted layout
   - Added user country and flag 
 - Fixes
   - Max allowed wanted level as 5099
