@@ -37,6 +37,7 @@ Problem to fix : website is not runing perfectly on mozilla firefox (FIXED)
 - VacCheck
     - will add steam accounts vac/game/trade ban status 
      <br/>https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key={API_Key}&steamids={id64}
+- Full rework
 
 #### Version 1.1
 
