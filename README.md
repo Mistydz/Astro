@@ -45,7 +45,7 @@ Problem to fix : website is not runing perfectly on mozilla firefox (FIXED)
   - Added user country and flag 
 - Fixes
   - Max allowed wanted level as 5099
-  - if level wanted is inferior to current level stop calculating 
+  - if level wanted is inferior to current level then replace wanted level with (current level + 1)
 
 #### Version 1.0
 
