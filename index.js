@@ -49,8 +49,8 @@ app.get("/id", urlencodedParser, async(req, res) => {
             } = PlayerSummaries.players[0];
 
 
-            const CountryURL = `https://restcountries.eu/rest/v2/alpha/${loccountrycode}`;
-            const { flag, name } = await (await fetch(CountryURL)).json();
+            const flag = await (await fetch(`https://www.countryflags.io/${loccountrycode}/flat/64.png`)).url;
+            const name = loccountrycode
 
             const data = {
                 steamid,
@@ -96,8 +96,8 @@ app.get("/id", urlencodedParser, async(req, res) => {
             } = PlayerSummaries.players[0];
 
 
-            const CountryURL = `https://restcountries.eu/rest/v2/alpha/${loccountrycode}`;
-            const { flag, name } = await (await fetch(CountryURL)).json();
+            const flag = await (await fetch(`https://www.countryflags.io/${loccountrycode}/flat/64.png`)).url;
+            const name = loccountrycode
 
             const data = {
                 steamid,
