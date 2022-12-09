@@ -19,9 +19,13 @@ if (!Steam_API_Key) {
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+// health check route
+app.get('/_health', (req, res) => {
+    res.status(200).send('Server is up')
+  })
+
+// Main Api route
 app.get("/id", urlencodedParser, async(req, res) => {
-
-
 
     async function getId() {
     const id = req.query.user;
@@ -31,10 +35,14 @@ app.get("/id", urlencodedParser, async(req, res) => {
     }else{
         const SteamIdUrl = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${Steam_API_Key}&vanityurl=${id}`;
         const { response: { success, steamid }, } = await (await fetch(SteamIdUrl)).json();
-        if (success != 1) throw new Error("This user can't be found , please verify your input again");
+        if (!success) throw new Error("This user can't be found , please verify your input again");
         var steam_id=steamid
     }
-    return gotID(steam_id)
+    if (!steam_id) {
+        res.json("user doesn't exist please try again");
+    }else{
+        return gotID(steam_id)
+    }  
     }
     getId()
 
