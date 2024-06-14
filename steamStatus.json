@@ -1,0 +1,18 @@
+{
+  "version": 14015,
+  "timestamp": 1718390381,
+  "time": "Fri Jun 14 11:39:41 2024",
+  "services": {
+    "SessionsLogon": "normal",
+    "SteamCommunity": "normal",
+    "IEconItems": "offline",
+    "Leaderboards": "idle"
+  },
+  "matchmaking": {
+    "scheduler": "normal",
+    "online_servers": 248762,
+    "online_players": 629291,
+    "searching_players": 11786,
+    "search_seconds_avg": 105
+  }
+}
