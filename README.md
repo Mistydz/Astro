@@ -21,13 +21,11 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 
 ### *Technologies & Tools*
 ##### *Front End*
-> ReactJs
+> NextJs
 ##### *Back End*
 >Node/Express
 ##### *API's Used*
 >Steam API [Documentation](https://partner.steamgames.com/doc/webapi/IPlayerService)
-
->REST Countries API [Documentation](https://restcountries.eu/)
 
 ### *Releases*
 Problem to fix : website is not runing perfectly on mozilla firefox (FIXED) 
@@ -42,7 +40,7 @@ Problem to fix : website is not runing perfectly on mozilla firefox (FIXED)
 #### Version 1.1
 
 - Features
-  - Added user country and flag 
+  - Added user country and flag (removed)
 - Fixes
   - Max allowed wanted level as 5099
   - if level wanted is inferior to current level then replace wanted level with (current level + 1)
