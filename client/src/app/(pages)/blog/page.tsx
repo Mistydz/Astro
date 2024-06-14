@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Blog() {
   const [posts, setPosts] = useState([
@@ -106,7 +107,7 @@ export default function Blog() {
               <p className={`mb-4 text-justify ${section.bold ? 'font-bold' : ''}`}>{section.paragraph}</p>
               {section.image && (
                 <div className="flex justify-center">
-                  <img src={section.image} alt={`Blog Image ${i + 1}`} className="rounded-lg max-w-96" />
+                  <Image src={section.image} alt={`Blog Image ${i + 1}`} className="rounded-lg max-w-96" />
                 </div>
               )}
             </div>
