@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../Constants/styles.css";
 import clsx from "clsx";
+import Image from "next/image";
 
 interface MainBodyProps {
   data: {
@@ -72,7 +73,7 @@ if (!data) {
 
       <div className="lg:flex lg:justify-evenly">
       <a >
-        <img className="mx-auto" src={data.avatarfull} />
+        <Image className="mx-auto" src={data.avatarfull} />
       </a>
       <div className="pt-5">
         <p>Name: &nbsp;{data.personaname}</p>
