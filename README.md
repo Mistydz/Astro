@@ -11,9 +11,10 @@ Steam max level cap is 5099 now so anything above that would not get calculated 
 ### *Demo*
 
 * Source Control: GitHub
-* Hosting: This application is deployed on Heroku. Please check it out [Here](https://astro-s.herokuapp.com/)
+* Hosting: This application is deployed on Vercel. Please check it out [Here](https://astro-front-ruby.vercel.app/)
 
 If you want to clone the project make sure to change the Steam_API_Key on the index.js and i recommend using dotenv before deploying your project so you dont share your api key publicly.
+if you counter a problem when deploying its due to typescripts errors , i had to change some files to jsx for it to work , i m not used to wrok with TS , should work fine on localhost
 
 ![demo](https://github.com/Mistydz/SteamAstro/blob/0ca089d9eea4b9a8e7484e350f9fa3a5840df8c7/public/12.PNG)
 
@@ -30,12 +31,18 @@ If you want to clone the project make sure to change the Steam_API_Key on the in
 ### *Releases*
 Problem to fix : website is not runing perfectly on mozilla firefox (FIXED) 
 
+#### Version 2 (in progress)
+- using NextJs for a better performance
+- UI rework
+- Deployment on Vercel
 
-#### Version 1.2 (in progress)
+
+#### Version 1.2 
 - VacCheck
     - will add steam accounts vac/game/trade ban status 
      <br/>https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key={API_Key}&steamids={id64}
 - Full rework
+
 
 #### Version 1.1
 
@@ -50,4 +57,4 @@ Problem to fix : website is not runing perfectly on mozilla firefox (FIXED)
 - Features
   - Steam user data from the steam api (Name,Level,XP)
   - Calcuate the difference on xp betwen current and wanted xp
-  - Deployment on https://astro-s.herokuapp.com/
+  - Deployment on Heroku
